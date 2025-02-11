@@ -1,7 +1,5 @@
 <?php
 
-// Correction by Korben Dallas :
-
 abstract class Model {
     private static $db;
 

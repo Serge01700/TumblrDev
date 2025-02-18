@@ -765,3 +765,13 @@ input:checked+.slider:before {
     background-color:red;
     color: red;
 }
+
+#grid-form>section>p{
+    color: blue;
+}
+
+#grid-form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+}

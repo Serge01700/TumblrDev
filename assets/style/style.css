@@ -760,3 +760,8 @@ input:checked+.slider:before {
     transform: scale(1.1);  
 
 }
+
+.bjr{
+    background-color:red;
+    color: red;
+}

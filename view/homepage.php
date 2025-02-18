@@ -2,71 +2,72 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./assets/style/style.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="./assets/style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     " rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </head>
 
 <body>
-    <section id="header">
+<section id="header">
 
 
+<div id="container">
+    <nav class="nav-bar " id='nav-bar'>
+        <div id="name">Tumblr Dev</div>
+        <img id="logo" src="./assets/img/Group 1 (1).svg" alt="">
 
+        <ul>
+            <li class="list-menu">Contact</li>
+            <li class="list-menu">Blog</li>
+            
+            <li class="list-menu">Lorem</li>
+            <li><label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider"></span>
+                </label></li>
+            <li class="list-menu"><button id="sign-in">Inscription</button></li>
+        </ul>
+        <a href="" id="burger">
+            <img id="burgerr" src="./assets/img/Group 2.svg" alt="">
+        </a>
+    </nav>
+</div>
 
-        <div id="container">
-            <nav class="nav-bar " id='nav-bar'>
-                <div id="name">Tumblr Dev</div>
-                <img id="logo" src="./assets/img/Group 1 (1).svg" alt="">
+<div class="container-theme">
 
-                <ul>
-
-                    <li class="list-menu">Contact</li>
-                    <li class="list-menu">Blog</li>
-                    <li class="list-menu">Lorem</li>
-                    <li class="list-menu">Lorem</li>
-                    <li class="list-menu">Lorem</li>
-                    <li class="list-menu"><button id="sign-in">Inscription</button></li>
-                </ul>
-                <a href="" id="burger">
-                    <img id="burgerr" src="./assets/img/Group 2.svg" alt="">
-                </a>
-            </nav>
+    <section class="grid-carousel">
+        <div id="com">
+            // Le podscat qui veut résoudre le problème
+            <br> // *avant* de passer au dev
         </div>
+        <section class="splide">
+            <div class="splide__track">
+                <ul class="splide__list">
 
-
-        <section class="grid-carousel">
-            <div id="com">
-                // Le podscat qui veut résoudre le problème
-                <br> // *avant* de passer au dev
+                    <li class="splide__slide" data-text="JavaScript, the web programming language."><img
+                            src="./assets/img/Firefly Génère une image illustrant JavaScript, le langage de programmation web, en mettant en avant (1).jpg"
+                            alt=""></li>
+                    <li class="splide__slide" data-text="Python, the versatile programming language."><img
+                            src="./assets/img/Firefly Génère une image illustrant Python, le langage de programmation polyvalent, en mettant en av (1).jpg"
+                            alt=""></li>
+                    <li class="splide__slide"
+                        data-text="PHP, the backend programming language for web development."><img
+                            src="./assets/img/Firefly Génère une image illustrant PHP, un langage de programmation web backend, en mettant en avan (1).jpg"
+                            alt=""></li>
+                </ul>
             </div>
-            <section class="splide">
-                <div class="splide__track">
-                    <ul class="splide__list">
-
-                        <li class="splide__slide" data-text="JavaScript, the web programming language."><img
-                                src="./assets/img/Firefly Génère une image illustrant JavaScript, le langage de programmation web, en mettant en avant (1).jpg"
-                                alt=""></li>
-                        <li class="splide__slide" data-text="Python, the versatile programming language."><img
-                                src="./assets/img/Firefly Génère une image illustrant Python, le langage de programmation polyvalent, en mettant en av (1).jpg"
-                                alt=""></li>
-                        <li class="splide__slide"
-                            data-text="PHP, the backend programming language for web development."><img
-                                src="./assets/img/Firefly Génère une image illustrant PHP, un langage de programmation web backend, en mettant en avan (1).jpg"
-                                alt=""></li>
-                    </ul>
-                </div>
-                <div class="slide-text" id="slide-text"></div>
-            </section>
-
+            <div class="slide-text" id="slide-text"></div>
         </section>
 
-
-
+    </div>
 
     </section>
 
@@ -147,6 +148,26 @@
 
 
     </section>
+
+    <footer>
+        <figure>
+            <img src="./assets/img/Group 1 (1).svg" alt="">
+        </figure>
+        <section id="container-footer">
+            <div>Web Development</div>
+            <div>Web Design</div>
+            <div>Frontend Developpement</div>
+            <div>Backend Developpement</div>
+            <div>UI/UX Design</div>
+            </div>
+            <section id="reseau">
+                <img src="./assets/img/instagram.png" alt="">
+                <img src="./assets/img/tic-tac.png" alt="">
+                <img src="./assets/img/twitter.png" alt="">
+                <img src="./assets/img/facebook.png" alt="">
+                <img src="./assets/img/linkedin.png" alt="">
+            </section>
+    </footer>
 
 
 <!-- Test accès BdD :  -->

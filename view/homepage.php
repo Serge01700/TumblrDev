@@ -21,7 +21,7 @@
         <div id="container">
             <nav class="nav-bar " id='nav-bar'>
                 <div id="name">Tumblr Dev</div>
-                <img id="logo" src="./assets/img/Group 1 (1).svg" alt="">
+                <img id="logo" src= "assets/img/Logotblr5 1 (1).svg" alt="">
 
                 <ul>
 

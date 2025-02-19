@@ -33,7 +33,11 @@
                     <input type="checkbox" id="darkModeToggle">
                     <span class="slider"></span>
                 </label></li>
-            <li class="list-menu"><button id="sign-in">Inscription</button></li>
+            <li class="list-menu">
+                <a href="<?= $router->generate('form-signup'); ?>">
+                <button id="sign-in">Inscription</button>
+                </a>
+        </li>
         </ul>
         <a href="" id="burger">
             <img id="burgerr" src="./assets/img/Group 2.svg" alt="">

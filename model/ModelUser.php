@@ -46,15 +46,13 @@ class ModelUser extends Model{
     public function createUser($name, $pseudo, $email, $password, $role, $nl_follower, $pb_follower){
         $req = $this->getDb()->prepare('INSERT INTO user (name, pseudo, email, password, role, nl_follower, pb_follower, creation_date, last_connection) VALUES (:name, :pseudo, :email, :password, :role, :nl_follower, :pb_follower, NOW(), NOW());');
 
-        $hashedPassword = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
-
-        $req->bindParam(':name', $_POST['name'], PDO::PARAM_STR);
-        $req->bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
-        $req->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
-        $req->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
-        $req->bindParam(':role', $_POST['role'], PDO::PARAM_INT);
-        $req->bindParam(':nl_follower', $_POST['nl_follower'], PDO::PARAM_INT);
-        $req->bindParam(':pb_follower', $_POST['pb_follower'], PDO::PARAM_INT);
+        $req->bindParam(':name', $name, PDO::PARAM_STR);
+        $req->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+        $req->bindParam(':email', $email, PDO::PARAM_STR);
+        $req->bindParam(':password', $password, PDO::PARAM_STR);
+        $req->bindParam(':role', $role, PDO::PARAM_INT);
+        $req->bindParam(':nl_follower', $nl_follower, PDO::PARAM_INT);
+        $req->bindParam(':pb_follower', $pb_follower, PDO::PARAM_INT);
 
         $req->execute();
     }

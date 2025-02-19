@@ -11,28 +11,56 @@ class ControllerUser {
     
     public function signup() {
 
-        global $router;
+        $name1 = $email = $pseudo = $password = $repassword ="" ; 
 
+        global $router;
+        
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['pwd'])){
+
+            $name1 = $_POST['name1'];
+            $email = $_POST['email'];
+            $pseudo = $_POST['pseudo'];
+            $password = $_POST['password'];
+            $repassword = $_POST['repassword'];
+
+
+            if(!empty($_POST['name1']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['repassword']) && !empty($_POST['pseudo'])){
                 
+            if(($_POST['password']) == ($_POST['repassword'])){
+
                 // Définir l'expression régulière pour le mot de passe
                 $passwordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/';
 
                 // Vérifier si le mot de passe respecte les critères
-                if (preg_match($passwordPattern, $_POST['pwd'])) {
+                if (preg_match($passwordPattern, $_POST['password'])) {
 
                 $model = new ModelUser();
                 $user = $model->getUserByEmail($_POST['email']);
                     if(!$user){
-                        $password= password_hash($_POST['pwd'], PASSWORD_DEFAULT);
+                        $password= password_hash($_POST['password'], PASSWORD_DEFAULT);
+                        $role=1;
+
+                        if($_POST['nl_follower']=="1") {
+                            $nl_follower=1;
+                        } else {
+                            $nl_follower=0;
+                        }
+
+                        if($_POST['pb_follower']=="1") {
+                            $pb_follower=1;
+                        } else {
+                            $pb_follower=0;
+                        }
+
                         $model = new ModelUser();
-                        $model->createUser($_POST['name'], $_POST['email'], $password);
+                        $model->createUser($_POST['name1'], $_POST['pseudo'], $_POST['email'], $password, $role, $nl_follower, $pb_follower);
+
+                        
 
                         $model = new ModelUser();
                         $user = $model->getUserByEmail($_POST['email']);
                     
-                        $_SESSION['id'] = $user->getId();
+                        $_SESSION['id'] = $user->getId_user();
                         $_SESSION['name'] = $user->getName();
                         header('Location: /tumblrdev/');
                         exit();
@@ -45,11 +73,15 @@ class ControllerUser {
                     require_once('./view/form-signup.php');
                 }
             } else {
+                $error = "Les 2 champs password doivent être identiques";
+                require_once('./view/form-signup.php');
+            }    
+            } else {
                 $error = "Tous les champs doivent être remplis";
                 require_once('./view/form-signup.php');
             }
         } else {
-            require_once('./view/form-signup.php');
+          require_once('./view/form-signup.php');
         }
     }
 

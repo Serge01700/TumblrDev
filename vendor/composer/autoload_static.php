@@ -10,9 +10,12 @@ class ComposerStaticInitfdb55ab3a826cc81720434dd90eab926
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'ControllerPublication' => __DIR__ . '/../..' . '/controller/ControllerPublication.php',
+        'ControllerUser' => __DIR__ . '/../..' . '/controller/ControllerUser.php',
         'Model' => __DIR__ . '/../..' . '/model/Model.php',
         'ModelPublication' => __DIR__ . '/../..' . '/model/ModelPublication.php',
+        'ModelUser' => __DIR__ . '/../..' . '/model/ModelUser.php',
         'Publication' => __DIR__ . '/../..' . '/entity/Publication.php',
+        'User' => __DIR__ . '/../..' . '/entity/User.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

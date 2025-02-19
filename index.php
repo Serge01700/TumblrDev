@@ -4,14 +4,20 @@ require_once('./vendor/autoload.php');
 require_once('./vendor/altorouter/altorouter/AltoRouter.php');
 
 $router = new AltoRouter();
-$router->setBasePath('/TumblrDev');
+$router->setBasePath('/tumblrdev');
 
 // Le nom du controller # la méthode à appeler = 'ControllerVille#home'
 $router->map('GET', '/', 'ControllerPublication#home', 'home');
 
+$router->map('GET|POST', '/form-signup', 'ControllerUser#signup', 'form-signup');
+
+$router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
+
+$router->map('GET', '/logout', 'ControllerUser#logout', 'logout');
+
 $match = $router->match();
 
-// var_dump($match);
+// var_dump($router);
 
 if(is_array($match)){
     list($controller, $action) = explode('#', $match['target']);

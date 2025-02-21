@@ -90,26 +90,31 @@ class ControllerUser {
     // Connexion d'un utilisateur.
 
     public function login() {
+        $email="";
         $model = new ModelUser();
-        $model->isConnected();
+        
+        //$model->isConnected();
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            if(!empty($_POST['email']) && !empty($_POST['pwd'])){
+            $email = $_POST['email'];
+            if(!empty($_POST['email']) && !empty($_POST['password'])){
                 $model = new ModelUser();
                 $user = $model->getUserByEmail($_POST['email']);
-                if($user && password_verify($_POST['pwd'], $user->getPassword())){
-                    $_SESSION['id'] = $user->getId();
+                var_dump($user,$_POST['password'],$user->getPassword());
+                if($user && password_verify($_POST['password'], $user->getPassword())){
+                    $_SESSION['id_user'] = $user->getId_user();
                     $_SESSION['name'] = $user->getName();
-                    header('Location: /');
+                    $_SESSION['pseudo'] =$user->getPseudo();
+                    header('Location: /tumblrdev');
                 } else {
                     $error = "Email/pasword incorrect";
-                    require_once('./view/login.php');
+                    require_once('./view/form-signin.php');
                 }
             } else {
                 $error = "Tous les champs doivent être remplis";
-                require_once('./view/login.php');
+                require_once('./view/form-signin.php');
             }
         } else {
-            require_once('./view/login.php');
+            require_once('./view/form-signin.php');
         } 
     }
 
@@ -119,7 +124,7 @@ class ControllerUser {
         // header('Location: /leboncoin');
         session_unset();
         session_destroy();
-        header('Location: /');
+        header('Location: /tumblrdev');
         exit();
     }
     

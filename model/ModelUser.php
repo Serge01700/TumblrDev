@@ -21,7 +21,7 @@ class ModelUser extends Model{
     }
 
     public function getUserByEmail(string $email){
-        $user = $this->getDb()->prepare('SELECT  id_user , name, pseudo, email, role, nl_follower, pb_follower, creation_date, last_connection 
+        $user = $this->getDb()->prepare('SELECT  id_user , name, pseudo, email, password, role, nl_follower, pb_follower, creation_date, last_connection 
                                         FROM  user, role 
                                         WHERE email=:email
                                         AND   role=id_role;');

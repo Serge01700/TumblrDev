@@ -58,7 +58,7 @@
   <label class="col-md-4 control-label" for="password">Mot de passe</label>
   <div class="col-md-5">
     <input id="password" name="password" type="password" placeholder="Mot de passe" class="form-control input-md" required="" value="<?= $password; ?>">
-    <span class="help-block">minimum 8 caractères, avec au moins une majuscule, une minuscule, et un caractère spécial</span>
+    <span class="help-block">minimum 8 caractères, avec au moins une majuscule, une minuscule, un chiffre, et un caractère spécial</span>
   </div>
 </div>
 

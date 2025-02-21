@@ -5,7 +5,7 @@ class ControllerPublication {
 
         global $router;
 
-
+        
         // Le controller appelle la méthode readville() du model ModelVille, et stocke le résultat dans une variable $datas.
         $model = new ModelPublication();
         $datas = $model->read();

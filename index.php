@@ -1,5 +1,7 @@
 <?php
 
+session_start();    // On démarre la session
+
 require_once('./vendor/autoload.php');
 require_once('./vendor/altorouter/altorouter/AltoRouter.php');
 
@@ -11,9 +13,11 @@ $router->map('GET', '/', 'ControllerPublication#home', 'home');
 
 $router->map('GET|POST', '/form-signup', 'ControllerUser#signup', 'form-signup');
 
-$router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
+$router->map('GET|POST', '/form-signin', 'ControllerUser#login', 'form-signin');
 
 $router->map('GET', '/logout', 'ControllerUser#logout', 'logout');
+
+
 
 $match = $router->match();
 

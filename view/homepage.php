@@ -33,11 +33,30 @@
                     <input type="checkbox" id="darkModeToggle">
                     <span class="slider"></span>
                 </label></li>
+
+            <?php
+                if(!$_SESSION){
+
+            ?>
             <li class="list-menu">
                 <a href="<?= $router->generate('form-signup'); ?>">
                 <button id="sign-in">Inscription</button>
                 </a>
-        </li>
+            </li>
+            <li class="list-menu">
+                <a href="<?= $router->generate('form-signin'); ?>">
+                <button id="sign-in">Connexion</button>
+                </a>
+            </li>
+            <?php }
+                if($_SESSION){
+            ?>
+            <li class="list-menu">
+                <a href="<?= $router->generate('logout'); ?>">
+                <button id="sign-in">Déconnexion</button>
+                </a>
+            </li>
+            <?php } ?>
         </ul>
         <a href="" id="burger">
             <img id="burgerr" src="./assets/img/Group 2.svg" alt="">
@@ -78,11 +97,18 @@
     <div class="burger-hidden">
         <ul>
             <li><button id="close">X</button></li>
+            <?php if(!$_SESSION){ ?>
+            <li><a href="<?= $router->generate('form-signin'); ?>">Connexion</a></li>
+            <li><a href="<?= $router->generate('form-signup'); ?>">Inscription</a></li>
+            <?php } ?>
             <li>Contact</li>
             <li>Blog</li>
             <li>Lorem</li>
             <li>Lorem</li>
-            <li>Lorem</li>
+            <?php if($_SESSION){ ?>
+            <li><a href="<?= $router->generate('logout'); ?>">Déconnexion</a></li>
+            <?php } ?>
+            
             <label for="connexion"></label>
             <input id="submit" type="submit" name="connexion" placeholder="Connexion">
         </ul>
